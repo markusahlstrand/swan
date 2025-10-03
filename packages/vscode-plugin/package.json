@@ -1,0 +1,127 @@
+{
+  "name": "swan-vscode",
+  "displayName": "Swan VS Code Extension",
+  "description": "VS Code extension for Swan development toolkit",
+  "version": "1.0.0",
+  "publisher": "swan",
+  "engines": {
+    "vscode": "^1.80.0",
+    "node": ">=18.0.0"
+  },
+  "categories": [
+    "Other",
+    "Snippets",
+    "Language Packs"
+  ],
+  "keywords": [
+    "swan",
+    "development",
+    "toolkit"
+  ],
+  "activationEvents": [
+    "onCommand:swan.helloWorld",
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "swan.helloWorld",
+        "title": "Hello World",
+        "category": "Swan"
+      },
+      {
+        "command": "swan.openDocs",
+        "title": "Open Documentation",
+        "category": "Swan"
+      },
+      {
+        "command": "swan.createProject",
+        "title": "Create New Swan Project",
+        "category": "Swan"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "swan.helloWorld"
+        },
+        {
+          "command": "swan.openDocs"
+        },
+        {
+          "command": "swan.createProject"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "swan.createProject",
+          "group": "swan"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Swan Configuration",
+      "properties": {
+        "swan.enableAutoComplete": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable auto-completion for Swan projects"
+        },
+        "swan.logLevel": {
+          "type": "string",
+          "enum": [
+            "error",
+            "warn",
+            "info",
+            "debug"
+          ],
+          "default": "info",
+          "description": "Set the logging level"
+        }
+      }
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "clean": "rm -rf out",
+    "package": "vsce package",
+    "dev": "pnpm run watch"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/swan.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/swan/issues"
+  },
+  "homepage": "https://github.com/your-username/swan#readme",
+  "license": "MIT"
+}

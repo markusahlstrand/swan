@@ -1,0 +1,57 @@
+{
+  "Swan App (TypeScript)": {
+    "prefix": "swan-app-ts",
+    "body": [
+      "import { createApp, AppConfig } from 'swan';",
+      "",
+      "const config: AppConfig = {",
+      "  name: '${1:MyApp}',",
+      "  version: '${2:1.0.0}',",
+      "  plugins: [${3:'router', 'state'}]",
+      "};",
+      "",
+      "const app = createApp(config);",
+      "",
+      "${4:// Your app logic here}",
+      "",
+      "export default app;"
+    ],
+    "description": "Create a new Swan application with TypeScript"
+  },
+  "Swan Component (TypeScript)": {
+    "prefix": "swan-component-ts",
+    "body": [
+      "import { Component, ComponentProps } from 'swan';",
+      "",
+      "interface ${1:MyComponent}Props extends ComponentProps {",
+      "  ${2:title}: string;",
+      "}",
+      "",
+      "export class ${1:MyComponent} extends Component<${1:MyComponent}Props> {",
+      "  constructor(props: ${1:MyComponent}Props) {",
+      "    super(props);",
+      "  }",
+      "",
+      "  render(): string {",
+      "    return `<div>${this.props.${2:title}}</div>`;",
+      "  }",
+      "}"
+    ],
+    "description": "Create a new Swan component with TypeScript"
+  },
+  "Swan Interface": {
+    "prefix": "swan-interface",
+    "body": [
+      "interface ${1:MyInterface} {",
+      "  ${2:property}: ${3:string};",
+      "  ${4:method}(): ${5:void};",
+      "}"
+    ],
+    "description": "Create a Swan interface"
+  },
+  "Swan Type": {
+    "prefix": "swan-type",
+    "body": ["type ${1:MyType} = {", "  ${2:property}: ${3:string};", "};"],
+    "description": "Create a Swan type definition"
+  }
+}

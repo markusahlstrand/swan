@@ -1,0 +1,45 @@
+{
+  "Swan App": {
+    "prefix": "swan-app",
+    "body": [
+      "import { createApp } from 'swan';",
+      "",
+      "const app = createApp({",
+      "  name: '${1:MyApp}',",
+      "  version: '${2:1.0.0}',",
+      "  plugins: [${3:'router', 'state'}]",
+      "});",
+      "",
+      "${4:// Your app logic here}",
+      "",
+      "export default app;"
+    ],
+    "description": "Create a new Swan application"
+  },
+  "Swan Component": {
+    "prefix": "swan-component",
+    "body": [
+      "import { Component } from 'swan';",
+      "",
+      "export class ${1:MyComponent} extends Component {",
+      "  constructor(props: ${2:any}) {",
+      "    super(props);",
+      "  }",
+      "",
+      "  render() {",
+      "    return ${3:'<div>Hello from Swan Component!</div>'};",
+      "  }",
+      "}"
+    ],
+    "description": "Create a new Swan component"
+  },
+  "Swan Logger": {
+    "prefix": "swan-log",
+    "body": [
+      "import { logger } from 'swan';",
+      "",
+      "logger.${1|info,warn,error,debug|}('${2:Your message here}');"
+    ],
+    "description": "Add Swan logger statement"
+  }
+}
